@@ -1,18 +1,27 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <div class="upload-box">
+      <input type="file" @change="upload($event)" />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import { Options, Vue } from 'vue-class-component'
 
 @Options({
-  components: {
-    HelloWorld
-  }
+  data() {
+    return {
+      test: '123',
+    }
+  },
+  methods: {
+    upload(e: Event) {
+      const target = e.target as HTMLInputElement
+      const files = target.files as FileList
+      console.log(files[0])
+    },
+  },
 })
 export default class Home extends Vue {}
 </script>
