@@ -1,18 +1,28 @@
 <template>
+  <h1>冷红利的excel</h1>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <input type="file" ref="file" @change="upload" @click="clearInput" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+import { defineComponent } from 'vue'
+import { upload } from '@/api/excel'
 
 export default defineComponent({
-  name: "Home",
-  components: {
-    HelloWorld
-  }
-});
+  name: 'Home',
+  methods: {
+    upload(e: Event) {
+      const target = e.target as HTMLInputElement
+      const files = target.files as FileList
+      const formData = new FormData()
+      formData.append('file', files[0])
+      upload(formData)
+    },
+    clearInput() {
+      const fileDom = this.$refs.file as HTMLFormElement
+      fileDom.value = null
+    },
+  },
+})
 </script>
