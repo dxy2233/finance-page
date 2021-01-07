@@ -1,5 +1,5 @@
 <template>
-  <h1>冷红利的excel</h1>
+  <h1>113w分类excel处理</h1>
   <div class="home">
     <input type="file" ref="file" @change="upload" @click="clearInput" />
   </div>

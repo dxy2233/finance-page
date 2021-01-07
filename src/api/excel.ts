@@ -3,7 +3,7 @@ import request from '@/utils/request'
 
 export function upload(data: FormData): AxiosPromise {
   return request({
-    url: '/upload',
+    url: '/api/upload',
     method: 'post',
     responseType: 'blob',
     data,

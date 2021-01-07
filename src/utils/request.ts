@@ -2,7 +2,8 @@ import axios from 'axios'
 
 const service = axios.create({
   // baseURL: process.env.VUE_APP_BASE_API + '/api',
-  baseURL: 'http://192.168.31.26:8999',
+  // baseURL: 'http://192.168.31.26:8999',
+  baseURL: 'https://service-men4p4at-1258577280.sh.apigw.tencentcs.com',
 })
 
 // service.interceptors.request.use(
@@ -16,8 +17,6 @@ const service = axios.create({
 
 service.interceptors.response.use(
   (response) => {
-    console.log(response.data.type)
-
     if (response.data.type === 'application/octet-stream') {
       const blob = new Blob([response.data], {
         type:
