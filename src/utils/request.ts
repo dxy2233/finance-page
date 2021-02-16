@@ -2,8 +2,7 @@ import axios from 'axios'
 
 const service = axios.create({
   // baseURL: process.env.VUE_APP_BASE_API + '/api',
-  // baseURL: 'http://192.168.31.26:8999',
-  baseURL: 'https://service-men4p4at-1258577280.sh.apigw.tencentcs.com',
+  baseURL: 'http://192.168.31.26:8999',
 })
 
 // service.interceptors.request.use(
